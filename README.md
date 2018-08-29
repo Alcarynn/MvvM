@@ -1,6 +1,6 @@
 # MvvM
 prérequis:
-installer tomcat surla machine.
+installer tomcat sur la machine.
 le plugin jbrain smart tomcat pour associe un serveur tomcat 
 configurer le path-context avec l'emplacement de la racine du serveur dossier www ou web-app 
 
