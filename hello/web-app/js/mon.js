@@ -18,15 +18,15 @@ function addTable(nodeName,data){
              tHead+="</tr>";
              $(nodeName).append(tHead);
              $(nodeName).append(tBody);
-		     $(nodeName).append('</table>');
+	     $(nodeName).append('</table>');
 }
 
 
 function getAll(){
-		var data = [];
-		var xmlhttp = new XMLHttpRequest();
-		xmlhttp.open("GET", "http://localhost:8080/hello/rest/hello/mock/book", true);
-		xmlhttp.onreadystatechange = function () {
+	var data = [];
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.open("GET", "http://localhost:8080/hello/rest/hello/mock/book", true);
+	xmlhttp.onreadystatechange = function () {
 		  if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
 			data = JSON.parse(xmlhttp.responseText);
 			 addTable("#tableId",data);
@@ -38,10 +38,10 @@ function getAll(){
 
 
 function getById(id){
-		var data = {};
-		var xmlhttp = new XMLHttpRequest();
-		xmlhttp.open("GET", "http://localhost:8080/hello/rest/hello/mock/"+id, true);
-		xmlhttp.onreadystatechange = function () {
+	var data = {};
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.open("GET", "http://localhost:8080/hello/rest/hello/mock/"+id, true);
+	xmlhttp.onreadystatechange = function () {
 		  if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
 			data = JSON.parse(xmlhttp.responseText);
 			  $("#tableId").append("<textarea></textarea>");
@@ -69,11 +69,11 @@ function getByTitle(title){
 }
 
 function getByPrice(price){
-		var data = {};
-		var xmlhttp = new XMLHttpRequest();
-		xmlhttp.open("GET", "http://localhost:8080/hello/rest/hello/mock/book/price/"+price, true);
-		xmlhttp.onreadystatechange = function () {
-		  if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
+	var data = {};
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.open("GET", "http://localhost:8080/hello/rest/hello/mock/book/price/"+price, true);
+	xmlhttp.onreadystatechange = function () {
+	if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
 			data = JSON.parse(xmlhttp.responseText);
 			 addTable("#tableId",data,["type","id","title","price","link"]);
 		  }
@@ -82,10 +82,10 @@ function getByPrice(price){
 }
 
 function getByTitle(title){
-		var data = {};
-		var xmlhttp = new XMLHttpRequest();
-		xmlhttp.open("GET", "http://localhost:8080/hello/rest/hello/mock/book/title/"+title, true);
-		xmlhttp.onreadystatechange = function () {
+	var data = {};
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.open("GET", "http://localhost:8080/hello/rest/hello/mock/book/title/"+title, true);
+	xmlhttp.onreadystatechange = function () {
 		  if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
 			data = JSON.parse(xmlhttp.responseText);
 			 addTable("#tableId",data);
