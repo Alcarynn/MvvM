@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Recherche</title>
+</head>
+<body>
+<form>
+    <select id="monselect">
+        <option value="title">titre</option>
+        <option value="price" selected>prix</option>
+    </select>
+    <input type="text" id="recherche"/>
+    <input type="submit"/>
+</form>
+    <div id="tableId"></div>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/purl.js"></script>
+    <script src="js/mon.js"></script>
+    <script>
+        $('form').submit( function(){
+            $("#tableId").text("");
+           if( $( "select option:selected" ).val()=='title'){
+                getByTitle($("#recherche").val());
+           }else{
+                 getByPrice($("#recherche").val());
+           }
+           return false;
+        });
+     </script>
+</body>
+</html>

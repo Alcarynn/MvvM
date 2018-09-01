@@ -1,5 +1,6 @@
 package com.alex.poe.media;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.Transient;
@@ -8,7 +9,7 @@ import javax.persistence.Transient;
 @Table(name="book")
 public class Book extends Media {
 
-    @Transient
+    @Column(name="nbPages")
     private int nbPage;
 
     public int getNbPage() {

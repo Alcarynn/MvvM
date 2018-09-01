@@ -8,7 +8,6 @@ import java.util.List;
 public interface IBookRepository {
 
     void load(String uri) throws IOException, ClassNotFoundException, SQLException;
-
     List<Book> getAll() throws SQLException;
     Book getById(int id) throws SQLException;
     List<Book> getByTitle(String title) throws SQLException;
