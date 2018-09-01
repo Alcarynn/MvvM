@@ -55,18 +55,6 @@ function getById(id){
         xmlhttp.send(xmlhttp);
 }
 
-function getByTitle(title){
-		var data = {};
-		var xmlhttp = new XMLHttpRequest();
-		xmlhttp.open("GET", "http://localhost:8080/hello/rest/hello/book/title/"+title, true);
-		xmlhttp.onreadystatechange = function () {
-		  if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
-			data = JSON.parse(xmlhttp.responseText);
-			 addTable("#tableId",data);
-		  }
-		};
-        xmlhttp.send(xmlhttp);
-}
 
 function getByPrice(price){
 	var data = {};
