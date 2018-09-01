@@ -18,7 +18,7 @@ function addTable(nodeName,data){
              tHead+="</tr>";
              $(nodeName).append(tHead);
              $(nodeName).append(tBody);
-		     $(nodeName).append('</table>');
+	     $(nodeName).append('</table>');
 }
 
 function getById(nodeName,data){
@@ -52,8 +52,7 @@ function getBy(type,param){
                getById("#tableId",data);
             }
 
-		  }
-		};
+	}};
         xmlhttp.send(xmlhttp);
 }
 
