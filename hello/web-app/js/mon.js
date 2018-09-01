@@ -63,7 +63,7 @@ function getByPrice(price){
 	xmlhttp.onreadystatechange = function () {
 	if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
 			data = JSON.parse(xmlhttp.responseText);
-			 addTable("#tableId",data,["type","id","title","price","link"]);
+			 addTable("#tableId",data);
 		  }
 		};
         xmlhttp.send(xmlhttp);
