@@ -1,9 +1,9 @@
  $('form').submit( function(){
             $("#tableId").text("");
-           if( $( "select option:selected" ).val()=='title'){
-                getByTitle($("#recherche").val());
-           }else{
-                getByPrice($("#recherche").val());
-           }
+            var type=$( "select option:selected" ).val();
+            var param=$( "#recherche" ).val();
+            if(param==="title"||param==="id"||param==="price"){
+                    getBy(type,param);
+             }
            return false;
         });

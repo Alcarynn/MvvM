@@ -87,9 +87,9 @@ public class BookJpaRepository  {
             return Response.status(Response.Status.NOT_FOUND).build();
         }
         else {
-           em.persist(em.merge(b));
+            em.merge(b);
         }
-        
+        em.persist(b);
         t.commit();
         return Response.ok().build();
     }

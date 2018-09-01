@@ -1,15 +1,10 @@
  $('form').submit( function(){
             $("#tableId").text("");
-           if( $( "select option:selected" ).val()=='title'){
-                getByTitle($("#recherche").val());
-           }else{
-                if($( "select option:selected" ).val()=='price'){
-                    getByPrice($("#recherche").val());
-                }
-                else{
-                    getById($("#recherche").val());
-                }
+            var type=$( "select option:selected" ).val();
+            var param=$( "#recherche" ).val();
+            if(type==="title"||type==="id"||type==="price"){
+                     getBy(type,param);
+             }
 
-           }
            return false;
         });

@@ -21,6 +21,18 @@ function addTable(nodeName,data){
 		     $(nodeName).append('</table>');
 }
 
+function getBy(type,param){
+		var data = {};
+		var xmlhttp = new XMLHttpRequest();
+		xmlhttp.open("GET", "http://localhost:8080/hello/rest/hello/mock/book/"+type+"/"+param, true);
+		xmlhttp.onreadystatechange = function () {
+		  if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
+			data = JSON.parse(xmlhttp.responseText);
+			 addTable("#tableId",data);
+		  }
+		};
+        xmlhttp.send(xmlhttp);
+}
 
 function getAll(){
 		var data = [];
@@ -44,9 +56,12 @@ function getById(id){
 		xmlhttp.onreadystatechange = function () {
 		  if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
 			data = JSON.parse(xmlhttp.responseText);
-			 $("#id").text(data.id);
-			 $("#titre").text(data.title);
-			 $("#price").text(data.price);
+			  $("#tableId").append("<textarea></textarea>");
+			  $("textarea").append("id: "+data.id);
+              $("textarea").append(" titre: "+data.title);
+              $("textarea").append(" prix: "+data.price);
+
+
 		  }
 		};
         xmlhttp.send(xmlhttp);
@@ -72,7 +87,7 @@ function getByPrice(price){
 		xmlhttp.onreadystatechange = function () {
 		  if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
 			data = JSON.parse(xmlhttp.responseText);
-			 addTable("#tableId",data,["type","id","title","price","link"]);
+			 addTable("#tableId",data);
 		  }
 		};
         xmlhttp.send(xmlhttp);
