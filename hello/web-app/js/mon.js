@@ -1,5 +1,5 @@
 
-function addTable(nodeName,data,strings){
+function addTable(nodeName,data){
             $(nodeName).append('<table>');
             tHead="<tr>";
             tBody="";
@@ -29,7 +29,7 @@ function getAll(){
 		xmlhttp.onreadystatechange = function () {
 		  if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
 			data = JSON.parse(xmlhttp.responseText);
-			 addTable("#tableId",data,["type","id","title","price","link"]);
+			 addTable("#tableId",data);
 		  }
 		};
         xmlhttp.send(xmlhttp);
@@ -44,9 +44,12 @@ function getById(id){
 		xmlhttp.onreadystatechange = function () {
 		  if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
 			data = JSON.parse(xmlhttp.responseText);
-			 $("#id").text(data.id);
-			 $("#titre").text(data.title);
-			 $("#price").text(data.price);
+			  $("#tableId").append("<textarea></textarea>");
+			  $("textarea").append("id: "+data.id);
+              $("textarea").append(" titre: "+data.title);
+              $("textarea").append(" prix: "+data.price);
+
+
 		  }
 		};
         xmlhttp.send(xmlhttp);
@@ -59,7 +62,7 @@ function getByTitle(title){
 		xmlhttp.onreadystatechange = function () {
 		  if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
 			data = JSON.parse(xmlhttp.responseText);
-			 addTable("#tableId",data,["type","id","title","price","link"]);
+			 addTable("#tableId",data);
 		  }
 		};
         xmlhttp.send(xmlhttp);
@@ -85,7 +88,7 @@ function getByTitle(title){
 		xmlhttp.onreadystatechange = function () {
 		  if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
 			data = JSON.parse(xmlhttp.responseText);
-			 addTable("#tableId",data,["type","id","title","price","link"]);
+			 addTable("#tableId",data);
 		  }
 		};
         xmlhttp.send(xmlhttp);
