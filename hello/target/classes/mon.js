@@ -1,8 +1,8 @@
 
 function addTable(nodeName,data){
+            var tHead="<tr>";
+            var tBody="";
             $(nodeName).append('<table>');
-            tHead="<tr>";
-            tBody="";
             for(ind in data){
                     tBody+="<tr>";
                     json=data[ind];
@@ -21,87 +21,43 @@ function addTable(nodeName,data){
 		     $(nodeName).append('</table>');
 }
 
+
 function getBy(type,param){
 		var data = {};
 		var xmlhttp = new XMLHttpRequest();
-		xmlhttp.open("GET", "http://localhost:8080/hello/rest/hello/mock/book/"+type+"/"+param, true);
+        var request= "http://localhost:8080/hello/rest/hello/mock/";
+		if(type!="id"){
+		    request+="book/";
+		    if(type!="all"){
+		        request+=type+"/"+param;
+		    }
+		}
+		else{
+		     request+=param;
+		}
+		xmlhttp.open("GET", request, true);
 		xmlhttp.onreadystatechange = function () {
 		  if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
 			data = JSON.parse(xmlhttp.responseText);
-			 addTable("#tableId",data);
-		  }
-		};
-        xmlhttp.send(xmlhttp);
-}
-
-function getAll(){
-		var data = [];
-		var xmlhttp = new XMLHttpRequest();
-		xmlhttp.open("GET", "http://localhost:8080/hello/rest/hello/mock/book", true);
-		xmlhttp.onreadystatechange = function () {
-		  if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
-			data = JSON.parse(xmlhttp.responseText);
-			 addTable("#tableId",data);
-		  }
-		};
-        xmlhttp.send(xmlhttp);
-        return data;
-}
-
-
-function getById(id){
-		var data = {};
-		var xmlhttp = new XMLHttpRequest();
-		xmlhttp.open("GET", "http://localhost:8080/hello/rest/hello/mock/"+id, true);
-		xmlhttp.onreadystatechange = function () {
-		  if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
-			data = JSON.parse(xmlhttp.responseText);
-			  $("#tableId").append("<textarea></textarea>");
-			  $("textarea").append("id: "+data.id);
-              $("textarea").append(" titre: "+data.title);
-              $("textarea").append(" prix: "+data.price);
-
+            if(type!="id"){
+             addTable("#tableId",data);
+            }
+            else{
+               addTable("#tableId",[data});
+            }
 
 		  }
 		};
         xmlhttp.send(xmlhttp);
 }
 
-function getByTitle(title){
-		var data = {};
-		var xmlhttp = new XMLHttpRequest();
-		xmlhttp.open("GET", "http://localhost:8080/hello/rest/hello/book/title/"+title, true);
-		xmlhttp.onreadystatechange = function () {
-		  if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
-			data = JSON.parse(xmlhttp.responseText);
-			 addTable("#tableId",data);
-		  }
-		};
-        xmlhttp.send(xmlhttp);
-}
+ $().ready(()=>{
+            var url = $.url(window.location.href);
+             if(url.attr('file')!="details.html"){
+                getBy("all","");
+             }
+             else{
+                getBy("id",url.param('id'));
+             }
+ });
 
-function getByPrice(price){
-		var data = {};
-		var xmlhttp = new XMLHttpRequest();
-		xmlhttp.open("GET", "http://localhost:8080/hello/rest/hello/mock/book/price/"+price, true);
-		xmlhttp.onreadystatechange = function () {
-		  if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
-			data = JSON.parse(xmlhttp.responseText);
-			 addTable("#tableId",data);
-		  }
-		};
-        xmlhttp.send(xmlhttp);
-}
-
-function getByTitle(title){
-		var data = {};
-		var xmlhttp = new XMLHttpRequest();
-		xmlhttp.open("GET", "http://localhost:8080/hello/rest/hello/mock/book/title/"+title, true);
-		xmlhttp.onreadystatechange = function () {
-		  if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
-			data = JSON.parse(xmlhttp.responseText);
-			 addTable("#tableId",data);
-		  }
-		};
-        xmlhttp.send(xmlhttp);
-}

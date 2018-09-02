@@ -2,7 +2,7 @@
             $("#tableId").text("");
             var type=$( "select option:selected" ).val();
             var param=$( "#recherche" ).val();
-            if(type==="title"||type==="id"||type==="price"){
+            if(type==="title"||type==="id"||type==="price"||type==="all"){
                      getBy(type,param);
              }
 
