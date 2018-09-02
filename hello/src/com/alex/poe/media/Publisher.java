@@ -1,14 +1,19 @@
 package com.alex.poe.media;
 
+import javax.persistence.*;
+import java.util.List;
+
+@Entity
+@Table(name="publisher")
 public class Publisher {
 
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
     private String name;
+    @OneToMany(mappedBy="publisher")
+    private List<Media> mediaList;
 
-    public Publisher(int id, String name) {
-        this.id = id;
-        this.name = name;
-    }
     public Publisher() {}
 
     public int getId() {
@@ -24,6 +29,19 @@ public class Publisher {
     }
 
     public void setName(String name) {
+        this.name = name;
+    }
+
+    public List<Media> getMediaList() {
+        return mediaList;
+    }
+
+    public void setMediaList(List<Media> mediaList) {
+        this.mediaList = mediaList;
+    }
+
+    public Publisher(int id, String name) {
+        this.id = id;
         this.name = name;
     }
 }

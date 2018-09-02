@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Recherche</title>
+</head>
+<body>
+<form>
+    <label>search by<label><select id="monselect">
+        <option value="all" selected>all</option>
+        <option value="id" >id</option>
+        <option value="title">titre</option>
+        <option value="price" >prix</option>
+    </select>
+    <input type="text" id="recherche"/>
+    <input type="submit"/>
+</form>
+    <div id="tableId"></div>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/purl.js"></script>
+    <script src="js/mon.js"></script>
+	<script src="js/listener.js"></script>
+</body>
+</html>

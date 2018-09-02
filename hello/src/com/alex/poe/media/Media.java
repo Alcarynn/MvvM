@@ -14,11 +14,12 @@ public abstract class Media implements IMedia {
     private int id;
     private String title;
 
-    @Transient
+    @ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="publisherid")
     private Publisher publisher;
 
-    @Transient
-    private List<Author> authorList = new ArrayList<>();
+    @ManyToMany(mappedBy="mediaList")
+    private List<Author> authorList;
 
     public Media() {}
 
