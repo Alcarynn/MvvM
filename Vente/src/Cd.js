@@ -14,27 +14,31 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var Media_1 = require("./Media");
-var Book = /** @class */ (function (_super) {
-    __extends(Book, _super);
-    function Book(id, title, price, nbPage) {
+var Cd = /** @class */ (function (_super) {
+    __extends(Cd, _super);
+    function Cd(id, title, price, nbTrack) {
         var _this = _super.call(this, id, title, price) || this;
-        _this._nbPage = nbPage;
+        _this._nbTrack = nbTrack;
         return _this;
     }
-    Object.defineProperty(Book.prototype, "nbPage", {
+    Object.defineProperty(Cd.prototype, "nbTrack", {
         get: function () {
-            return this._nbPage;
-        },
-        set: function (nbPage) {
-            this._nbPage = nbPage;
+            return this._nbTrack;
         },
         enumerable: true,
         configurable: true
     });
-    Book.prototype.netPrice = function () {
-        return this.price * 1.05;
+    Object.defineProperty(Cd.prototype, "nbPage", {
+        set: function (nbTrack) {
+            this._nbTrack = nbTrack;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Cd.prototype.netPrice = function () {
+        return this.price * 1.20;
     };
     ;
-    return Book;
+    return Cd;
 }(Media_1.Media));
-exports.Book = Book;
+exports.Cd = Cd;

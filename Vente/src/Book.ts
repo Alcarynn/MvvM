@@ -14,5 +14,7 @@ import {Media} from './Media';
         set nbPage(nbPage:number){
             this._nbPage=nbPage;
         }
-
+         netPrice(): number{
+            return this.price*1.05; 
+        };
     }

@@ -94,6 +94,13 @@ import {Media} from './Media';
             }
             
         }
+        netTotalPrice=():number =>{
+            var sum:number=0;
+            for(let ind in this.cartRows){
+                sum+=this.cartRows[ind].media.price;
+            }
+            return sum;
+        }
         
     }
 

@@ -26,5 +26,6 @@ function main(){
         cart.add(b);
         cart.add(m);
         console.log(cart);
+        console.log("total net "+cart.netTotalPrice());
 }
 main();

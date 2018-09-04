@@ -42,7 +42,15 @@ var CartRow = /** @class */ (function () {
 }());
 var Cart = /** @class */ (function () {
     function Cart() {
+        var _this = this;
         this.cartRows = new Array();
+        this.netTotalPrice = function () {
+            var sum = 0;
+            for (var ind in _this.cartRows) {
+                sum += _this.cartRows[ind].media.price;
+            }
+            return sum;
+        };
     }
     Cart.prototype.add = function (media) {
         if (media != null) {

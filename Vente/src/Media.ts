@@ -5,14 +5,14 @@
 		_id: number;
 		_title: string;
 		_price:number;
-	   
+	    netPrice(): number;
    }
    
    
    export abstract class Media implements IMedia{
-	   		_id:number;
-			_title:string;
-			_price:number;
+	   		 _id:number;
+			 _title:string;
+			 _price:number;
 
 		   constructor(id:number,title:string,price:number){
 			   this._id=id;
@@ -41,7 +41,7 @@
 			   this._price=price;
 		   }
 
-	   
+		   abstract  netPrice(): number;
    }
    
   
