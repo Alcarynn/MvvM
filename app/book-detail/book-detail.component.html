@@ -1,0 +1,11 @@
+<div *ngIf="media!=null">
+    <h2>{{media.title | uppercase}} Details</h2>
+    <div><span>id: </span>{{media.id}}</div>
+    <div>
+      <label>title:
+        <input [(ngModel)]="media.title" placeholder="name">
+      </label>
+    </div>
+    <label>price: <input [(ngModel)]="media.price" placeholder="name">
+    <div>
+</div>
