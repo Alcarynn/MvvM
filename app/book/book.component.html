@@ -1,7 +1,7 @@
 <h2>My books</h2>
 <ul class="heroes">
-    <li *ngFor="let m of medias"  [class.selected]="m === selectedMedia" (click)="onSelect(m)">
-      <span class="badge">{{m.id}}</span> {{m.title}} price:{{m.price}}
+    <li *ngFor="let m of medias" >
+      <a routerLink="/detail/{{m.id}}"> <span class="badge">{{m.id}}</span> {{m.title}} price:{{m.price}}</a>
+     
    </li>
 </ul>
-<app-book-detail [media]="selectedMedia"></app-book-detail>

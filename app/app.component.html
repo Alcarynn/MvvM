@@ -1,7 +1,13 @@
 <!--The content below is only a placeholder and can be replaced.-->
+
 <div style="text-align:center">
   <h1>
     Welcome to {{ title }}!
   </h1>
-<app-book></app-book>
+  <nav>
+    <a routerLink="/books">books</a>
+    <a routerLink="/dashboard">dashboard</a>
+  </nav>
+  </div>
+  <router-outlet></router-outlet>
 <app-messages></app-messages>

@@ -13,5 +13,9 @@ export class BookService {
     return of(MEDIAS);
 
   }
+  getMedia(id):Observable<Media>{
+      this.messagesService.add(`bookService: fetched hero id=${id}`);
+      return of(MEDIAS.find(media => media.id === id));
+  }
   constructor(public messagesService:MessagesService) { }
 }
