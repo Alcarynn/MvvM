@@ -26,6 +26,7 @@ public class User {
 
     )
     private List<User> amiList=new ArrayList<>();
+    
     @OneToMany(mappedBy="author")
     private List<Message>messageList=new ArrayList<>();
 
