@@ -48,16 +48,20 @@ import {Media} from './Media';
          add(media:Media){
             if(media!=null){
                 if(this.cartRows.length!=0){
-                    for(let ind in this.cartRows){
-                        if(this.cartRows[ind].media.id!=media.id)
-                        {
+                    int i=0;
+                    while(this.cartRows[ind].media.id!=media.id)&&i<this.cartRows[ind].length){
+                        i++;
+                    }
+                   
+                   if(i==this.cartRows[ind].length)
+                    {
                             let c:CartRow=new CartRow(media);//to do
                             this.cartRows.push(c);
-                        }
-                        else{
-                            this.cartRows[ind].increment();
-                        }
                     }
+                    else{
+                            this.cartRows[ind].increment();
+                   }
+                    
                 }
                 else{
                     let c:CartRow=new CartRow(media);
