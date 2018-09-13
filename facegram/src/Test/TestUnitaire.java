@@ -12,7 +12,7 @@ import java.sql.SQLException;
 import com.reseausocial.UserJpaRepository;
 
 public class TestUnitaire{
-    UserJpaRepository usrRep= new UserJpaRepository();
+    private UserJpaRepository usrRep= new UserJpaRepository();
     @Test
     public void jpaRepository(){
 
