@@ -23,7 +23,7 @@ public class Message {
     private Date date;
 
     @ManyToMany(mappedBy="likedList")
-    List<User> likerList=new ArrayList<>();
+    private List<User> likerList=new ArrayList<>();
 
     @OneToMany(fetch = FetchType.LAZY)
     @JoinTable(
@@ -31,7 +31,7 @@ public class Message {
             joinColumns=@JoinColumn(name="msgid"),
             inverseJoinColumns=@JoinColumn(name="comid")
     )
-    List<Message> commentList=new ArrayList<>();
+    private List<Message> commentList=new ArrayList<>();
     Message(){
 
     }
