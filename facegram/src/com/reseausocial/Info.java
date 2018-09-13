@@ -14,7 +14,10 @@ public class Info {
     private String name;
     @OneToOne
     private User user;
+    
+    public Info(){
 
+    }
     public Info(int id,String name){
         this.id=id;
         this.name=name;
