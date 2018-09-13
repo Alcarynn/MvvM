@@ -31,6 +31,7 @@ public class Message {
             joinColumns=@JoinColumn(name="msgid"),
             inverseJoinColumns=@JoinColumn(name="comid")
     )
+    //todo ajouter is comment
     private List<Message> commentList=new ArrayList<>();
     Message(){
 
