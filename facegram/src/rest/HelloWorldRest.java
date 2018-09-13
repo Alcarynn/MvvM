@@ -39,14 +39,21 @@ public class HelloWorldRest {
     @GET
     @Path("/user")
     @Produces(MediaType.APPLICATION_JSON)
-    public List<User> getAllBook() {
+    public List<User> getAll() {
         return userRepository.getAll();
+    }
+
+    @GET
+    @Path("/user/{login}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public User getUser(@PathParam("login") String login) {
+        return userRepository.getUsrByLogin(login);
     }
 
     @POST
     @Path("/user")
     @Consumes(MediaType.APPLICATION_JSON)
-    public User putBook(User u) {
+    public User putUser(User u) {
        return userRepository.add(u);
     }
 
@@ -54,7 +61,7 @@ public class HelloWorldRest {
     @Path("/user")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response postBook(User u) {
+    public Response postUser(User u) {
         if(!userRepository.update(u)) {
 
             return Response.status(Response.Status.NOT_FOUND).build();
@@ -65,7 +72,7 @@ public class HelloWorldRest {
 
     @DELETE
     @Path("/user/{id}")
-    public Response deleteBook(@PathParam("id") int id) {
+    public Response deleteUser(@PathParam("id") int id) {
         if(userRepository.remove(id)) {
             return Response.status(Response.Status.NOT_FOUND).build();
         }

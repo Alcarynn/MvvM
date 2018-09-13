@@ -23,6 +23,9 @@ public class UserJpaRepository {
         return u;
     }
 
+    public User getUsrByLogin(String login) {
+        return null;
+    }
 
     public User add(User u) {
         EntityTransaction t = em.getTransaction();
@@ -61,4 +64,6 @@ public class UserJpaRepository {
         t.commit();
         return true;
     }
+
+
 }

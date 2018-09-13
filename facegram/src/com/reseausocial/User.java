@@ -26,9 +26,8 @@ public class User {
 
     )
     private List<User> amiList=new ArrayList<>();
-    
     @OneToMany(mappedBy="author")
-    private List<Message>messageList=new ArrayList<>();
+    List<Message>messageList=new ArrayList<>();
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
@@ -36,7 +35,7 @@ public class User {
             joinColumns=@JoinColumn(name="userid"),
             inverseJoinColumns=@JoinColumn(name="likeid")
     )
-    private List<Message>likedList=new ArrayList<>();
+    List<Message>likedList=new ArrayList<>();
 
     public User(){
 
